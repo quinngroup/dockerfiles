@@ -1,7 +1,7 @@
 # Installs Python (with Anaconda) and the latest version of OpenCV with
 # Python bindings.
 
-FROM ubuntu:14.04.2
+FROM magsol/cuda
 MAINTAINER Shannon Quinn "magsol@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -20,6 +20,7 @@ RUN wget https://repo.continuum.io/archive/Anaconda-$ANACONDA_VERSION-Linux-x86_
 RUN /bin/bash /Anaconda-$ANACONDA_VERSION-Linux-x86_64.sh -b -p /opt/conda && \
     rm /Anaconda-$ANACONDA_VERSION-Linux-x86_64.sh
 ENV PATH /opt/conda/bin:$PATH
+RUN conda update -y --all
 
 # Now that Python is set up, install OpenCV.
 RUN wget https://github.com/Itseez/opencv/archive/$OPENCV_VERSION.zip && \
@@ -41,5 +42,3 @@ RUN make -j && make install
 WORKDIR /
 RUN rm -rf opencv-$OPENCV_VERSION
 ENV PATH /opt/opencv:$PATH
-
-ENTRYPOINT ["/bin/bash"]
