@@ -12,7 +12,8 @@ ENV OPENCV_VERSION 3.0.0
 RUN apt-get -y update
 RUN apt-get -y install cmake git libgtk2.0-dev pkg-config libavcodec-dev \
     libavformat-dev libswscale-dev libtbb2 libtbb-dev libtiff5-dev wget \
-    libjasper-dev libdc1394-22-dev unzip libblas-dev liblapack-dev
+    libjasper-dev libdc1394-22-dev unzip libblas-dev liblapack-dev qt5-default \
+    libvtk6-dev openjdk-7-jdk
 
 # Install Anaconda.
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > conda.sh && mv conda.sh /etc/profile.d/
@@ -27,6 +28,8 @@ RUN wget https://github.com/Itseez/opencv/archive/$OPENCV_VERSION.zip && \
     unzip $OPENCV_VERSION.zip && rm $OPENCV_VERSION.zip && \
     mkdir opencv-$OPENCV_VERSION/build
 WORKDIR opencv-$OPENCV_VERSION/build/
+RUN sed -i 's/http:\/\/sourceforge\.net\/projects\/opencvlibrary\/files\/3rdparty\/ippicv/https:\/\/dl\.dropboxusercontent\.com\/u\/1377610/g' \
+    ../3rdparty/ippicv/downloader.cmake
 RUN cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/opt/opencv \
     -D PYTHON2_EXECUTABLE=/opt/conda/bin/python \
     -D PYTHON2_INCLUDE_DIR=/opt/conda/include/python2.7 \
