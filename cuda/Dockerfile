@@ -23,7 +23,7 @@ RUN apt-get install -y linux-image-extra-`uname -r` linux-headers-`uname -r` \
     linux-image-`uname -r`
 
 # Install CUDA.
-RUN apt-get install -y cuda && apt-get clean
+RUN apt-get install -y cuda && apt-get clean && rm cuda-repo-ubuntu1404_7.0-28_amd64.deb
 
 # Need to put cuda on the linker path.  This may not be the best way, but it works.
 RUN echo '/usr/local/cuda/lib64' > /etc/ld.so.conf.d/cuda_hack.conf && \
