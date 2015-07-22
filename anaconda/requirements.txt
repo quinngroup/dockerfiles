@@ -1,5 +1,6 @@
 # Scientific computing.
 thunder-python
+bolt-python
 picos
 sima
 
