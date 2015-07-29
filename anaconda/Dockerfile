@@ -23,8 +23,8 @@ RUN /opt/conda/bin/conda install --yes astropy beautiful-soup blaze-core \
     bokeh bottleneck cython dask decorator freetype future gensim h5py hdf5 \
     ipython joblib libpng libsodium libtiff libxml2 llvmlite matplotlib nltk \
     numba numpy opencv pandas pep8 pillow pip protobuf pyamg scikit-image \
-    scikit-learn scipy seaborn shapely sqlalchemy sqlite starcluster tornado \
-    twisted
+    scikit-learn scipy seaborn shapely sqlalchemy sqlite starcluster toolz \
+    tornado twisted xray
 ADD requirements.txt /tmp/requirements.txt
 RUN /opt/conda/bin/pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 

@@ -14,3 +14,7 @@ mechanize
 tweepy
 pycallgraph
 awscli
+DAWG
+scikit-cuda
+chainer
+optunity
