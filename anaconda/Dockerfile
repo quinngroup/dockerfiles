@@ -27,5 +27,3 @@ RUN /opt/conda/bin/conda install --yes astropy beautiful-soup blaze-core \
     tornado twisted xray
 ADD requirements.txt /tmp/requirements.txt
 RUN /opt/conda/bin/pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
-
-ENTRYPOINT ["/bin/bash"]
