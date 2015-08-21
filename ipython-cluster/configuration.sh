@@ -6,6 +6,8 @@ __image_base=ipython-cluster-base
 __image_controller=ipython-cluster-controller
 __image_engine=ipython-cluster-engine
 
+__image_prefix=magsol
+
 __host_dir_engine=$(pwd)/runtime/security
 __host_engine=ipcontroller-engine.json
 
@@ -15,6 +17,6 @@ function build_docker_image() {
   local __image=$1
   echo -e "\n\n ----- Building $__image ----- \n\n"
   pushd ${__dockerfile_dir}/${__image}
-  docker build -t $__image .
+  docker build -t {$__image_prefix}/{$__image} .
   popd
 }

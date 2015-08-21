@@ -5,7 +5,7 @@
 
 source configuration.sh
 
-__image=$__image_controller
+__image=${__image_prefix}/${__image_controller}
 docker pull $__image
 docker run -d \
     --net="host" \

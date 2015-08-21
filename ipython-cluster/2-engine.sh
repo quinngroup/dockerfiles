@@ -13,7 +13,7 @@ if [ ! -f ${__host_dir_engine}/${__host_engine} ]; then
     exit 1
 fi
 
-__image=$__image_engine
+__image=${__image_prefix}/${__image_engine}
 docker pull $__image
 docker run -d \
     --net="host" \
