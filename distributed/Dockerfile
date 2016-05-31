@@ -16,3 +16,7 @@ RUN git clone https://gist.github.com/165330b48c869a7ccc33.git scripts && \
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 ENV PATH /opt/python/bin:$PATH
+
+# Move the startup scripts over.
+COPY start-scheduler.sh ./bin/
+COPY start-worker.sh ./bin/

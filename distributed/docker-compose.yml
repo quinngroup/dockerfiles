@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  dscheduler:
+  scheduler:
     build:
       context: ./scheduler
     image: magsol/dist-scheduler
