@@ -4,4 +4,4 @@
 # number of threads to 1. Yes, bypass the GIL.
 
 NCPUS=`python -c "import multiprocessing as mp; print(mp.cpu_count())"`
-dworker scheduler:8786 --name worker --nthreads 1 --nprocs $NCPUS
+dworker scheduler:8786 --nthreads 1 --nprocs $NCPUS
