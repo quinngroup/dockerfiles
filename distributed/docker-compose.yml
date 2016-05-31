@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  dscheduler:
+    build:
+      context: ./scheduler
+    image: magsol/dist-scheduler
+    ports:
+      - "8786:8786"
+      - "8787:8787"
+
+  worker:
+    build:
+      context: ./worker
+    image: magsol/dist-worker
