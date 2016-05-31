@@ -10,4 +10,4 @@ RUN apt-get install -y wget rsync build-essential openjdk-7-jdk vim emacs git
 
 # Install Anaconda and set up the basic Python environment.
 RUN git clone https://gist.github.com/165330b48c869a7ccc33.git scripts && \
-    /bin/bash scripts/conda3-distributed.sh && rm -rf scripts/
+    scripts/conda3-distributed.sh && rm -rf scripts/
