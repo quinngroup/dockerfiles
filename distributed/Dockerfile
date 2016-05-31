@@ -18,7 +18,6 @@ ENV LANG C.UTF-8
 ENV PATH /opt/python/bin:$PATH
 
 # Move the startup scripts over.
-RUN mkdir -p /work/bin
-WORKDIR /work
-COPY start-scheduler.sh ./bin/
-COPY start-worker.sh ./bin/
+COPY start-scheduler.sh /tmp
+COPY start-worker.sh /tmp
+RUN chmod +x /tmp/*.sh && mv /tmp/*.sh /bin/
